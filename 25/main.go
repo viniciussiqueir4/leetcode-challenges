@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 /**
  * Definition for singly-linked list.
  */
@@ -10,40 +12,51 @@ type ListNode struct {
 }
 
 func (l *ListNode) AddNode(val int) {
-	head := &ListNode{
+	newNode := &ListNode{
 		Val:  val,
 		Next: nil,
 	}
 
-	if l.Next != nil {
-		l.Next = head
+	if l == nil {
+		l = newNode
+		return
 	}
+	fmt.Println("Oi2", l)
+
+	current := l
+	for current.Next != nil {
+		current = current.Next
+	}
+
+	current.Next = newNode
 }
 
 func reverseKGroup(head *ListNode, k int) *ListNode {
-
-	ct := 1
-	_, cp := []int{}, []int{}
-
-	// reverseArray := func(arr []int) []int {
-	// 	for i, j := 0, len(arr)-1; i < j; i, j = i+1, j-1 {
-	// 		arr[i], arr[j] = arr[j], arr[i]
-	// 	}
-	// 	return arr
-	// }
+	var aux *ListNode
+	// var aux2 *ListNode
+	count := 1
+	aux.AddNode(2)
+	fmt.Println("LL", aux)
+	fmt.Println("LL", &head)
 
 	for head != nil {
-		cp = append(cp, head.Val)
-
-		if ct == k {
-			ct = 0
-			cp = []int{}
-		}
-		ct++
+		// if k == count || head.Next != nil {
+		// 	for aux != nil {
+		// 		aux2.AddNode(aux.Val)
+		// 	}
+		// 	count = 0
+		// 	aux = &ListNode{}
+		// }
+		fmt.Println("Add Value", head.Val)
+		// aux = aux.AddNode(1)
+		count++
 		head = head.Next
 	}
 
-	return &ListNode{}
+	fmt.Println("Aux", aux)
+	// fmt.Println("FNn", *aux)
+
+	return head
 }
 
 func main() {
@@ -60,5 +73,5 @@ func main() {
 			},
 		},
 	}}
-	reverseKGroup(&list, 2)
+	fmt.Println("Result", reverseKGroup(&list, 2))
 }
