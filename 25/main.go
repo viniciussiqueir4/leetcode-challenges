@@ -11,52 +11,19 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func (l *ListNode) AddNode(val int) {
-	newNode := &ListNode{
-		Val:  val,
-		Next: nil,
-	}
-
-	if l == nil {
-		l = newNode
-		return
-	}
-	fmt.Println("Oi2", l)
-
-	current := l
-	for current.Next != nil {
-		current = current.Next
-	}
-
-	current.Next = newNode
-}
-
 func reverseKGroup(head *ListNode, k int) *ListNode {
-	var aux *ListNode
-	// var aux2 *ListNode
-	count := 1
-	aux.AddNode(2)
-	fmt.Println("LL", aux)
-	fmt.Println("LL", &head)
+	aux := &ListNode{0, head}
+	current := aux
+	// i := 0
 
 	for head != nil {
-		// if k == count || head.Next != nil {
-		// 	for aux != nil {
-		// 		aux2.AddNode(aux.Val)
-		// 	}
-		// 	count = 0
-		// 	aux = &ListNode{}
-		// }
-		fmt.Println("Add Value", head.Val)
-		// aux = aux.AddNode(1)
-		count++
+		for j := 0; j < k; j++ {
+			current = current.Next
+		}
+		fmt.Println("Oi", current)
 		head = head.Next
 	}
-
-	fmt.Println("Aux", aux)
-	// fmt.Println("FNn", *aux)
-
-	return head
+	return nil
 }
 
 func main() {
