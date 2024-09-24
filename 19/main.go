@@ -26,7 +26,7 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 			target = 2
 		}
 		target--
-  head = head.Next
+		head = head.Next
 	}
 	current.Next = current.Next.Next
 	return tail.Next
@@ -47,23 +47,19 @@ func main() {
 				},
 			},
 		}}
-	// head2 := &ListNode{
-	// 	Val:  1,
-	// 	Next: nil,
-	// }
-	// head3 := &ListNode{
-	// 	Val: 1,
-	// 	Next: &ListNode{
-	// 		Val:  2,
-	// 		Next: nil,
-	// 	},
-	// }
-	// fmt.Println("TestCase2", removeNthFromEnd(head2, 1))
-	// fmt.Println("TestCase2", removeNthFromEnd(head3, 2))
-	n := removeNthFromEnd(head, 2)
-
-	for n != nil {
-		fmt.Println("III", n.Val)
-		n = n.Next
+	head2 := &ListNode{
+		Val:  1,
+		Next: nil,
 	}
+	head3 := &ListNode{
+		Val: 1,
+		Next: &ListNode{
+			Val:  2,
+			Next: nil,
+		},
+	}
+	fmt.Println("TestCase2", removeNthFromEnd(head2, 1))
+	fmt.Println("TestCase2", removeNthFromEnd(head3, 2))
+	removeNthFromEnd(head, 2)
+
 }

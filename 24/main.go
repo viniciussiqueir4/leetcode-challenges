@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -56,21 +52,7 @@ func main() {
 		},
 	}
 
-	a := swapPairs(head)
-	b := swapPairs(head2)
-	c := swapPairs(nil)
-
-	for a != nil {
-		fmt.Println("OSS", a.Val)
-		a = a.Next
-	}
-
-	for b != nil {
-		fmt.Println("III", b.Val)
-		b = b.Next
-	}
-	for c != nil {
-		fmt.Println("NEXT", c.Val)
-		c = c.Next
-	}
+	swapPairs(head)
+	swapPairs(head2)
+	swapPairs(nil)
 }

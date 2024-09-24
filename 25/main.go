@@ -20,7 +20,6 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 		for j := 0; j < k; j++ {
 			current = current.Next
 		}
-		fmt.Println("Oi", current)
 		head = head.Next
 	}
 	return nil

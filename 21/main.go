@@ -57,8 +57,6 @@ func main() {
 	rr := mergeTwoLists(nil, l2)
 
 	for rr != nil {
-		fmt.Println("OOOVD", rr.Val)
-
 		rr = rr.Next
 	}
 	fmt.Println("Testcaase1", mergeTwoLists(list1, list2))

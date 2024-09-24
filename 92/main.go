@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type ListNode struct {
 	Val  int
 	Next *ListNode
@@ -47,25 +45,6 @@ func main() {
 		},
 	}
 
-	// head2 := &ListNode{
-	// 	Val: 3,
-	// 	Next: &ListNode{
-	// 		Val:  5,
-	// 		Next: nil,
-	// 	},
-	// }
-
-	t1 := reverseBetween(head, 1, 4)
-	// t2 := reverseBetween(head2, 1, 1)
-
-	for t1 != nil {
-		fmt.Println("t2", t1.Val)
-		t1 = t1.Next
-	}
-
-	// for t2 != nil {
-	// 	// fmt.Println("t2", t2.Val)
-	// 	t2 = t2.Next
-	// }
+	reverseBetween(head, 1, 4)
 
 }
