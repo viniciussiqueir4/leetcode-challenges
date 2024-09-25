@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -44,8 +42,6 @@ func reorderList(head *ListNode) {
 		}
 		head = head.Next
 	}
-
-	fmt.Println("KsAs", dummy.Next)
 
 	if dummy.Next != nil {
 		current.Next = dummy.Next.Next
