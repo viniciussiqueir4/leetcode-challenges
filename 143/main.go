@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -17,35 +19,50 @@ func reorderList(head *ListNode) {
 	tail := head
 	current := tail
 
-	dummy := &ListNode{0, nil}
-	currentDummy := dummy
-	k, j := 0, 0
+	// dummy := &ListNode{0, nil}
+	// currentDummy := dummy
+	_, j := 0, 0
+
+	for current.Next.Next != nil {
+		current = current.Next
+		j++
+	}
+
+	fmt.Println("AG", current)
 
 	for head != nil {
-		if current.Next != nil {
-			for current.Next.Next != nil {
-				current = current.Next
-				j++
-			}
+		fmt.Println("asduad", current.Val)
+		// current.Next = current
 
-			var nextNode *ListNode
-			if (k == 0 && j == 0) || k != j {
-				nextNode = &ListNode{Val: current.Next.Val}
-			}
-
-			currentDummy.Next = &ListNode{Val: head.Val, Next: nextNode}
-			currentDummy = currentDummy.Next.Next
-			current.Next = nil
-			current = tail
-			j = 1
-			k++
-		}
+		// fmt.Println("AG", current)
 		head = head.Next
 	}
 
-	if dummy.Next != nil {
-		current.Next = dummy.Next.Next
-	}
+	// for head != nil {
+	// 	if current.Next != nil {
+	// for current.Next.Next != nil {
+	// 	current = current.Next
+	// 	j++
+	// }
+
+	// 		var nextNode *ListNode
+	// 		if (k == 0 && j == 0) || k != j {
+	// 			nextNode = &ListNode{Val: current.Next.Val}
+	// 		}
+
+	// 		currentDummy.Next = &ListNode{Val: head.Val, Next: nextNode}
+	// 		currentDummy = currentDummy.Next.Next
+	// 		current.Next = current
+	// 		current = tail
+	// 		j = 1
+	// 		k++
+	// 	}
+	// 	head = head.Next
+	// }
+
+	// if dummy.Next != nil {
+	// 	current.Next = dummy.Next.Next
+	// }
 }
 
 func main() {
