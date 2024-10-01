@@ -10,26 +10,11 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func inorder(root *TreeNode) []int {
-	if root == nil {
-		return []int{}
-	}
-
-	var k []int
-	if root.Left == nil || (root.Left != nil) {
-		k = append(k, inorder(root.Right)...)
-	}
-	return append(append(inorder(root.Left), root.Val), k...)
-}
-
 func inorderTraversal(root *TreeNode) []int {
 	if root == nil {
 		return []int{}
 	}
-
-	inorderLeft := append(inorder(root.Left), root.Val)
-	inorderRight := inorder(root.Right)
-	return append(inorderLeft, inorderRight...)
+	return append(append(inorderTraversal(root.Left), root.Val), inorderTraversal(root.Right)...)
 }
 
 func main() {
