@@ -9,19 +9,15 @@ func dividePlayers(skill []int) int64 {
 	sort.Ints(skill)
 	left, right := 0, len(skill)-1
 	target := skill[0] + skill[right]
-	var teams [][]int
+	sum := 0
+
 	for left < right {
 		if target != skill[left]+skill[right] {
 			return -1
 		}
-		teams = append(teams, []int{skill[left], skill[right]})
+		sum += skill[left] * skill[right]
 		left++
 		right--
-	}
-
-	sum := 0
-	for _, value := range teams {
-		sum += value[0] * value[1]
 	}
 
 	return int64(sum)
