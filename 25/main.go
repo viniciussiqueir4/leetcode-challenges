@@ -27,7 +27,7 @@ func (s *Stack) Pop() {
 }
 
 func (s *Stack) Top() (int, error) {
-	if s == nil {
+	if s.IsEmpty() {
 		return 0, fmt.Errorf("stack is empty")
 	}
 
@@ -35,10 +35,7 @@ func (s *Stack) Top() (int, error) {
 }
 
 func (s *Stack) IsEmpty() bool {
-	if len(s.items) == 0 {
-		return true
-	}
-	return false
+	return len(s.items) == 0
 }
 
 func (s *Stack) Clear() {
